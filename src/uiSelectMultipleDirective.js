@@ -163,8 +163,9 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
           } else {
             throw uiSelectMinErr('multiarr', "Expected model value to be array but got '{0}'", ngModel.$viewValue);
           }
+        } else {
+          $select.selected = ngModel.$viewValue;
         }
-        $select.selected = ngModel.$viewValue;
         $selectMultiple.refreshComponent();
         scope.$evalAsync(); //To force $digest
       };
